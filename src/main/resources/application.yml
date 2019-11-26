@@ -1,6 +1,16 @@
+server:
+  port: 8001
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3306/activity?useUnicode=true&characterEncoding=utf8
     username: show
     password: root
+  activiti:
+        check-process-definitions: false
+        process-definition-location-prefix: classpath:/processes/
+        database-schema-update: true
+        #不生成流程图png
+        createDiagramOnDeploy: true
+        #异步启动
+        async-executor-activate: true
