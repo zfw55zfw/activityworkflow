@@ -65,7 +65,9 @@ public class ActivitiDemo {
      */
     @Test
     public void searchTask(){
-        List<Task> list = taskService.createTaskQuery().taskAssignee("张三").list();
+//        String assigenee="张三";
+        String assigenee="李四";
+        List<Task> list = taskService.createTaskQuery().taskAssignee(assigenee).list();
         if(list!=null&& list.size()>0){
             for (Task task:list) {
                 System.out.println(task.getId());
@@ -73,6 +75,16 @@ public class ActivitiDemo {
                 System.out.println(task.getAssignee());
             }
         }
+    }
+
+    /**
+     * 完成个人任务相关
+     */
+    @Test
+    public void completeTask(){
+        String taskId="12502";
+        taskService.complete(taskId);
+        System.out.println("完成任务"+taskId);
     }
 //    @Test
 //    public void test(){
